@@ -22,5 +22,8 @@ all: $(KERNEL_BIN)
 $(KERNEL_BIN):
 	$(GO_ENV) $(GO) build -ldflags "$(LDFLAGS)" -o $@ ./$(KERNEL_DIR)
 
+run: $(KERNEL_BIN)
+	qemu-system-i386 -kernel $(KERNEL_BIN)
+
 clean:
 	rm -f $(KERNEL_BIN)
