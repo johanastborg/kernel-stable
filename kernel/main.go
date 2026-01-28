@@ -10,6 +10,17 @@ func KernelMain() {
 	InitInterrupts()
 	Print("Interrupts Initialized. Press any key...\n")
 
-	for {
-	}
+	AddTask("Task 1", Task1)
+	AddTask("Task 2", Task2)
+
+	Print("Starting Scheduler...\n")
+	Schedule()
+}
+
+func Task1() {
+	Print("1")
+}
+
+func Task2() {
+	Print("2")
 }
